@@ -1,3 +1,44 @@
 ul{
   list-style-type: none;
+  margin: 0 auto;
+}
+.background{background-color: rgb(223, 212, 213);
+  }
+.container {
+  box-shadow: 0 30px 50px rgba(43, 33, 68, 0.08);
+border-radius: 18px;
+margin-top: 90px;
+background-color: rgb(227, 230, 234);
+padding: 40px;}
+
+#search-control
+{max-width: 200%;
+  padding-bottom: 20px;
+ text-align: center;
+ ;
+}
+h1{ 
+padding-left: 31px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.emojis{
+  padding-left:32px ;
+}
+
+#emoji{
+  font-size: 60px;
+}
+#github{
+ font-size: smaller;
+ text-align: right;
+ font-family: 'Courier New', Courier, monospace;}
+
+.dailyData{
+ color: darkmagenta;
+ font-size: 15px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
 }

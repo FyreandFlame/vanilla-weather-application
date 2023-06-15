@@ -1,90 +1,66 @@
-<!doctype html>
+
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="source/style.css" />
     <title>Weather Application</title>
-    <link rel="stylesheet" href="source/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
-  <body class="background">
-    <div class ="container"> 
-      <form>
-        <div id = "search-control">
-        <input type = text rounded-end placeholder="Enter your city...">
-       
-         <button type="submit" class="btn btn-primary" class="searchButton">Search</button> </div>
-      </form>
-      <h1>Edinburgh</h1> 
-      <div class = emojis>
-        <div  id="emoji">
-          ☀     
+  <body>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form>
+            <input type = text rounded-end placeholder="Enter your city...">
+            <button type="submit" class="btn btn-dark" class="searchButton">Search</button> 
+            
+          </form>
+          <div class="overview">
+            <h1 id="city">Edinburgh</h1>
+            <ul>
+             <li>Friday <span id="date">16/06</span></li>
+             <li id="time">22:54</li>
+             <li id="description">clear sky</li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="d-flex weather-temperature">
+                <img src="image/sunny.png" alt="sunny" id="icon" />
+                <div>
+                  <strong id="temperature">15</strong
+                  ><span class="units"> °C | <a href="#">°F</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Precipitation: <span id="precipitation">2</span>%</li>
+                <li>Humidity: <span id="humidity">73</span>%</li>
+                <li>Wind: <span id="wind">10</span> m/h</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div >12°C | °F</div>
-       <div>  
+       </div> <small> <a
+       href="https://github.com/FyreandFlame/vanilla-weather-application"
+       target="_blank"
+       >Open-source code</a
+     >
+     by Jen McCafferty 📝
+   </small>
       </div>
       </div>
-     <br />
-   
-   <div class="row dailyData">
-  <div class="col-3">
-    <ul><li>
-      Monday <span>06/06/23</span>
-    </li>
-    <li>22:37</li>
-    <li>currently <span>clear</span>
-      </li></ul>
-  </div>
-  <div class="col-3">
-    <ul><li>
-      humidity: 17%
-    </li>
-    <li>wind speed: 5 mph</li>
-    <li>precipitation: 2% </li></ul>  
-    </div>
-    <div class="row forecast">
-      <div class="col-2">
-        Tuesday
-        <br>
-        6°C
-        <br>🌈
-      </div>
-   
-<div class="col-2">Wednesday
-  <br/>
-  6°C
-  <br>
-  ☁
-</div>
-<div class="col-2">Thursday
-  <br>
-  6°C
-  <br>
-  ⛈
-</div>
-<div class="col-2">Friday
-  <br>
-  6°C
-  <br>
-  🌧
-</div>
-<div class="col-2">Saturday
-  <br>6°C
-  <br>
-  🌦
-</div>
-<div class="col-2">Sunday
-  <br>6°C
-  <br>
-  🌤
-</div>
-<div>
-<div  id="github">
-    <a href="https://github.com/FyreandFlame/vanilla-weather-application" target="_blank">Open-sourced code</a> by Jen McCafferty 📝
-  </div>
-</div> </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <script src="source/app.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>

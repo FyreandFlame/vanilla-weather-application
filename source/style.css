@@ -14,6 +14,9 @@ li{
   line-height: 18px;
   text-align: left;
 }
+li:first-letter{
+  text-transform: uppercase;
+}
 
 .container{
   max-width: 600px;

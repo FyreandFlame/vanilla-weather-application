@@ -10,10 +10,9 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      crossorigin="anonymous"/>
     <link rel="stylesheet" href="source/style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather Application</title>
   </head>
   <body>
@@ -26,32 +25,60 @@
             
           </form>
           <div class="overview">
-            <h1 id="city">Edinburgh</h1>
+            <h1 id="city"></h1>
             <ul>
              <li>Friday <span id="date">16/06</span></li>
              <li id="time">22:54</li>
-             <li id="description">clear sky</li>
+             <li id="description"></li>
             </ul>
           </div>
           <div class="row">
             <div class="col-6">
               <div class="d-flex weather-temperature">
-                <img src="image/sunny.png" alt="sunny" id="icon" />
+                <img src="" alt="weather" id="icon" />
                 <div>
-                  <strong id="temperature">15</strong
+                  <strong id="temperature"></strong
                   ><span class="units"> °C | <a href="#">°F</a></span>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation: <span id="precipitation">2</span>%</li>
                 <li>Humidity: <span id="humidity">73</span>%</li>
                 <li>Wind: <span id="wind">10</span> m/h</li>
-              </ul>
+               </ul>
             </div>
           </div>
         </div>
+        <div class="container">
+          <div class="weather-app-wrapper">
+            <div class="weather-app">
+             
+              <div class="overview">
+                <h1 id="city">Forecast</h1>
+                
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="d-flex weather-temperature">
+                    <img src="image/sunny.png" alt="sunny" id="icon" />
+                    <div>
+                      <strong id="temperature">15</strong
+                      ><span class="units"> °C | <a href="#">°F</a></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <ul>
+                    <li>Precipitation: <span id="precipitation">2</span>%</li>
+                    <li>Humidity: <span id="humidity">73</span>%</li>
+                    <li>Wind: <span id="wind">10</span> m/h</li>
+                    <li class="timeOfSun">Sunrise: <span id="sunrise">10:00</span> |
+                    Sunset: <span id="sunset">22:05</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
        </div> <small> <a
        href="https://github.com/FyreandFlame/vanilla-weather-application"
        target="_blank"
@@ -61,6 +88,6 @@
    </small>
       </div>
       </div>
-    <script src="src/app.js"></script>
+    <script src="source/app.js"></script>
   </body>
 </html>

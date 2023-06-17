@@ -31,9 +31,25 @@ currentCity.innerHTML = response.data.city;
 currentTemperature.innerHTML = Math.round(response.data.temperature.current)
 }
 
+function search(city){
+  let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
+   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(url).then(displayTemperature);
+
+}
+
+search("Edinburgh");
+
+function handleSubmit(event){
+  event.preventDefault();
+let changeCity = document.querySelector("#citySearch");
+search(changeCity.value);
+
+}
 
 
-let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
-let city = "London";
-let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-axios.get(url).then(displayTemperature);
+
+
+
+let searchBar = document.querySelector("#selfSearch");
+searchBar.addEventListener("submit", handleSubmit);

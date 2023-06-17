@@ -28,8 +28,13 @@ li:first-letter{
   padding: 10px;
   border: 1px solid #dadde1;
   border-radius: 18px;
-background-color: rgb(227, 230, 234);
+  background-color: rgb(227, 230, 234);
 }
+.weather-app strong{
+  color: rbg(33,33,33);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
 
 h1{
   display: block;
@@ -40,17 +45,8 @@ h1{
   margin-bottom: 20px;
 
 }
-#icon{
-  display: block;
- max-width: 80px;
- max-height: 70px;
 
-}
-.weather-app strong{
-  color: rbg(33,33,33);
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 1;
+
 }
 .weather-temperature .units{
   position: relative;
@@ -59,8 +55,4 @@ h1{
   margin-top: 6px;
   padding-left: 6px;
   vertical-align: top;
-}
-.timeOfSun{
-  color: black;
-
 }

@@ -29,16 +29,16 @@ currentWeather.innerHTML = response.data.condition.description;
 humidity.innerHTML = response.data.temperature.humidity;
 currentCity.innerHTML = response.data.city;
 currentTemperature.innerHTML = Math.round(response.data.temperature.current)
+celsiusTemp = Math.round(response.data.temperature.current)
 }
 
 function search(city){
   let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(url).then(displayTemperature);
-
 }
 
-search("Edinburgh");
+
 
 function handleSubmit(event){
   event.preventDefault();
@@ -46,10 +46,28 @@ let changeCity = document.querySelector("#citySearch");
 search(changeCity.value);
 
 }
+function convertCelcius(event){
+  event.preventDefault();
+   let currentTemperature = document.querySelector("#temperature");
+ currentTemperature.innerHTML = Math.round(celsiusTemp)
+}
 
+function convertFahren(event){
+  event.preventDefault();
+  let fahrenTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  let currentTemperature = document.querySelector("#temperature");
+  currentTemperature.innerHTML = fahrenTemp
+}
 
+let celsiusTemp = null;
 
+let fahren = document.querySelector("#fahren");
+fahren.addEventListener("click",convertFahren);
 
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click",convertCelcius);
+
+search("Edinburgh");
 
 let searchBar = document.querySelector("#selfSearch");
 searchBar.addEventListener("submit", handleSubmit);

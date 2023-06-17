@@ -11,7 +11,6 @@ if (minutes < 10){
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
-
 }
 
 function displayTemperature(response){
@@ -21,6 +20,9 @@ let currentWeather = document.querySelector("#description");
 let humidity = document.querySelector("#humidity");
 let windSpeed = document.querySelector("#wind");
 let currentDate = document.querySelector("#date");
+let emoji = document.querySelector("#icon");
+emoji.setAttribute("src",(response.data.condition.icon_url));
+emoji.setAttribute("alt",(response.data.condition.icon));
 currentDate.innerHTML = formatDate(response.data.time*1000);
 windSpeed.innerHTML = Math.round(response.data.wind.speed);
 currentWeather.innerHTML = response.data.condition.description;
@@ -28,6 +30,7 @@ humidity.innerHTML = response.data.temperature.humidity;
 currentCity.innerHTML = response.data.city;
 currentTemperature.innerHTML = Math.round(response.data.temperature.current)
 }
+
 
 
 let apiKey = "480227a74ed9efc4a37t55fo364bf60c";

@@ -48,12 +48,16 @@ search(changeCity.value);
 }
 function convertCelcius(event){
   event.preventDefault();
+  celcius.classList.add("active");
+  fahren.classList.remove("active");
    let currentTemperature = document.querySelector("#temperature");
  currentTemperature.innerHTML = Math.round(celsiusTemp)
 }
 
 function convertFahren(event){
   event.preventDefault();
+  celcius.classList.remove("active");
+  fahren.classList.add("active");
   let fahrenTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let currentTemperature = document.querySelector("#temperature");
   currentTemperature.innerHTML = fahrenTemp
@@ -70,4 +74,4 @@ celcius.addEventListener("click",convertCelcius);
 search("Edinburgh");
 
 let searchBar = document.querySelector("#selfSearch");
-searchBar.addEventListener("submit", handleSubmit);
+searchBar.addEventListener("submit", handleSubmit);searchBar.addEventListener("submit", handleSubmit);

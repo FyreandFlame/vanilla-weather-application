@@ -38,14 +38,13 @@ function search(city){
   axios.get(url).then(displayTemperature);
 }
 
-
-
 function handleSubmit(event){
   event.preventDefault();
 let changeCity = document.querySelector("#citySearch");
 search(changeCity.value);
 
 }
+
 function convertCelcius(event){
   event.preventDefault();
   celcius.classList.add("active");
@@ -74,4 +73,5 @@ celcius.addEventListener("click",convertCelcius);
 search("Edinburgh");
 
 let searchBar = document.querySelector("#selfSearch");
-searchBar.addEventListener("submit", handleSubmit);searchBar.addEventListener("submit", handleSubmit);
+searchBar.addEventListener("submit", handleSubmit);
+

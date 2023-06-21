@@ -19,8 +19,8 @@
         <div class="weather-app">
           <form id="selfSearch" class="mb-3">
             <div class="row">
-              <div class="col-8"><input type ="search" rounded-end placeholder="Enter your city..." id="citySearch" autocomplete="off" autofocus ></div>
-              <div class="col-4"><input type = "submit" value="Search" class="btn btn-dark"></div>
+              <div class="col"><input type ="search" rounded-end placeholder="Enter your city..." id="citySearch" autocomplete="off" autofocus ></div>
+              <div class="col"><input type = "submit" value="Search" class="btn btn-dark"></div>
                </div>
             </form>
           <div class="overview">
@@ -46,9 +46,22 @@
                 <li>Wind: <span id="wind"></span> m/h</li>
                </ul>
             </div>
-          </div>
+
+    </div>
+    <div class="forecast">
+      <div class="row">
+        <div class="col-2">
+          <div class="day">
+          Tues
         </div>
-      <small>
+        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy">
+        <span class="max-temperature">23°</span>
+        <span class="min-temperature">15°</span>
+        </div>
+      </div>
+     </div>
+      </div>
+       <small>
        <a href="https://github.com/FyreandFlame/vanilla-weather-application"
        target="_blank"
        >Open-source code</a

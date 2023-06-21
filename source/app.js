@@ -36,6 +36,7 @@ function search(city){
   let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(url).then(displayTemperature);
+  showForecast();
 }
 
 function handleSubmit(event){
@@ -60,6 +61,23 @@ function convertFahren(event){
   let fahrenTemp = Math.round((celsiusTemp * 9) / 5 + 32);
   let currentTemperature = document.querySelector("#temperature");
   currentTemperature.innerHTML = fahrenTemp
+}
+
+function showForecast(){
+  let forecast = document.querySelector("#forecast");
+   let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+   let forecastHTML = `<div class = "row">`
+  days. forEach(function(day){  forecastHTML = forecastHTML + `<div class="col-2">
+  <div class="day">
+  ${day}
+</div>
+<img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="" width = "42">
+<span class="max-temperature">23°</span>
+<span class="min-temperature">15°</span>
+</div>`;
+  })
+forecastHTML = forecastHTML + `</div>`
+forecast.innerHTML = forecastHTML;
 }
 
 let celsiusTemp = null;

@@ -68,8 +68,8 @@ li:first-letter{
   .forecast{
     margin-bottom: 15px;
     text-align: center;
-    color: darkslategray;
-   
+    font-size: 12px;
+      
   }
   .day{
     
@@ -78,6 +78,4 @@ li:first-letter{
   .min-temperature{
     opacity: 0.6;
   }
-  .min-temperature, .max-temperature{
-    font-size: 14px;
-  }
+ 

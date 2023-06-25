@@ -12,10 +12,16 @@ let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
 let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "480227a74ed9efc4a37t55fo364bf60c"
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
+  axios.get(apiUrl).then(showForecast);
+}
 
 function displayTemperature(response){
- let currentTemperature = document.querySelector("#temperature");
- let currentCity = document.querySelector("#city");
+let currentTemperature = document.querySelector("#temperature");
+let currentCity = document.querySelector("#city");
 let currentWeather = document.querySelector("#description");
 let humidity = document.querySelector("#humidity");
 let windSpeed = document.querySelector("#wind");
@@ -28,15 +34,16 @@ windSpeed.innerHTML = Math.round(response.data.wind.speed);
 currentWeather.innerHTML = response.data.condition.description;
 humidity.innerHTML = response.data.temperature.humidity;
 currentCity.innerHTML = response.data.city;
-currentTemperature.innerHTML = Math.round(response.data.temperature.current)
-celsiusTemp = Math.round(response.data.temperature.current)
+currentTemperature.innerHTML = Math.round(response.data.temperature.current);
+celsiusTemp = Math.round(response.data.temperature.current);
+
+getForecast(response.data.coordinates);
 }
 
 function search(city){
   let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(url).then(displayTemperature);
-  showForecast();
 }
 
 function handleSubmit(event){
@@ -45,6 +52,7 @@ let changeCity = document.querySelector("#citySearch");
 search(changeCity.value);
 
 }
+
 
 function convertCelcius(event){
   event.preventDefault();
@@ -63,7 +71,8 @@ function convertFahren(event){
   currentTemperature.innerHTML = fahrenTemp
 }
 
-function showForecast(){
+function showForecast(response){
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
    let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
    let forecastHTML = `<div class = "row">`
@@ -71,7 +80,8 @@ function showForecast(){
   <div class="day">
   ${day}
 </div>
-<img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="" width = "42">
+<img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="" width = "39">
+<br/>
 <span class="max-temperature">23°</span>
 <span class="min-temperature">15°</span>
 </div>`;

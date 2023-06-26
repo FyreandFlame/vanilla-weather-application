@@ -13,10 +13,9 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes}`;
 }
 function getForecast(coordinates){
-  console.log(coordinates);
-  let apiKey = "480227a74ed9efc4a37t55fo364bf60c"
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
-  axios.get(apiUrl).then(showForecast);
+let apiKey = "480227a74ed9efc4a37t55fo364bf60c"
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
+axios.get(apiUrl).then(showForecast);
 }
 
 function displayTemperature(response){
@@ -37,17 +36,16 @@ currentCity.innerHTML = response.data.city;
 currentTemperature.innerHTML = Math.round(response.data.temperature.current);
 celsiusTemp = Math.round(response.data.temperature.current);
 
-getForecast(response.data.coordinates);
-}
+getForecast(response.data.coordinates);}
 
 function search(city){
-  let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
-   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(url).then(displayTemperature);
+let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
+let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+axios.get(url).then(displayTemperature);
 }
 
 function handleSubmit(event){
-  event.preventDefault();
+event.preventDefault();
 let changeCity = document.querySelector("#citySearch");
 search(changeCity.value);
 
@@ -55,11 +53,11 @@ search(changeCity.value);
 
 
 function convertCelcius(event){
-  event.preventDefault();
-  celcius.classList.add("active");
-  fahren.classList.remove("active");
-   let currentTemperature = document.querySelector("#temperature");
- currentTemperature.innerHTML = Math.round(celsiusTemp)
+event.preventDefault();
+celcius.classList.add("active");
+fahren.classList.remove("active");
+let currentTemperature = document.querySelector("#temperature");
+currentTemperature.innerHTML = Math.round(celsiusTemp)
 }
 
 function convertFahren(event){
@@ -71,21 +69,31 @@ function convertFahren(event){
   currentTemperature.innerHTML = fahrenTemp
 }
 
+function formatTimestamp(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+ let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+
+  return days[day];
+}
+
+
 function showForecast(response){
-  console.log(response.data.daily);
+  let forecasting = response.data.daily;
+  console.log(forecasting)
   let forecast = document.querySelector("#forecast");
-   let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
    let forecastHTML = `<div class = "row">`
-  days. forEach(function(day){  forecastHTML = forecastHTML + `<div class="col-2">
+  forecasting.forEach(function(forecastingDay, index){if (index < 6)
+    {forecastHTML = forecastHTML + `<div class="col-2">
   <div class="day">
-  ${day}
+  ${formatTimestamp(forecastingDay.time)}
 </div>
-<img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="" width = "39">
+<img src="${forecastingDay.condition.icon_url}" alt="#" width = "39">
 <br/>
-<span class="max-temperature">23°</span>
-<span class="min-temperature">15°</span>
+<span class="max-temperature">${Math.round(forecastingDay.temperature.maximum)}°</span>
+<span class="min-temperature">${Math.round(forecastingDay.temperature.minimum)}°</span>
 </div>`;
-  })
+  }})
 forecastHTML = forecastHTML + `</div>`
 forecast.innerHTML = forecastHTML;
 }

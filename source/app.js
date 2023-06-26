@@ -71,7 +71,6 @@ function formatTimestamp(timestamp){
 
 function showForecast(response){
   let forecasting = response.data.daily;
-  console.log(forecasting)
   let forecast = document.querySelector("#forecast");
    let forecastHTML = `<div class = "row">`
   forecasting.forEach(function(forecastingDay, index){if (index < 6)

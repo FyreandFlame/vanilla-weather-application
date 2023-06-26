@@ -60,14 +60,6 @@ let currentTemperature = document.querySelector("#temperature");
 currentTemperature.innerHTML = Math.round(celsiusTemp)
 }
 
-function convertFahren(event){
-  event.preventDefault();
-  celcius.classList.remove("active");
-  fahren.classList.add("active");
-  let fahrenTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  let currentTemperature = document.querySelector("#temperature");
-  currentTemperature.innerHTML = fahrenTemp
-}
 
 function formatTimestamp(timestamp){
   let date = new Date(timestamp * 1000);
@@ -76,7 +68,6 @@ function formatTimestamp(timestamp){
 
   return days[day];
 }
-
 
 function showForecast(response){
   let forecasting = response.data.daily;
@@ -97,14 +88,6 @@ function showForecast(response){
 forecastHTML = forecastHTML + `</div>`
 forecast.innerHTML = forecastHTML;
 }
-
-let celsiusTemp = null;
-
-let fahren = document.querySelector("#fahren");
-fahren.addEventListener("click",convertFahren);
-
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click",convertCelcius);
 
 search("Edinburgh");
 

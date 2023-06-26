@@ -80,3 +80,16 @@ li:first-letter{
     opacity: 0.6;
   }
  
+  .dark
+    {background-color: #56508B;
+    }
+    
+    .gitLink{
+      color: black;
+      text-decoration: none;
+   }
+
+  a:hover{
+    color: black;
+    text-decoration: none;
+   }

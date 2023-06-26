@@ -1,3 +1,11 @@
+function darkTheme() {
+let body = document.querySelector("body");
+  let hour = (new Date).getHours();
+  if (hour >= 16) {
+  body.classList.add('dark');
+  }
+};
+
 function formatDate(timestamp){
 let date = new Date(timestamp);
 let hours = date.getHours();
@@ -10,13 +18,7 @@ if (minutes < 10){
 }
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let day = days[date.getDay()];
-return `${day} ${hours}:${minutes}`;
-}
-function getForecast(coordinates){
-let apiKey = "480227a74ed9efc4a37t55fo364bf60c"
-let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`
-axios.get(apiUrl).then(showForecast);
-}
+return `${day} ${hours}:${minutes}`;}
 
 function displayTemperature(response){
 let currentTemperature = document.querySelector("#temperature");
@@ -35,31 +37,21 @@ humidity.innerHTML = response.data.temperature.humidity;
 currentCity.innerHTML = response.data.city;
 currentTemperature.innerHTML = Math.round(response.data.temperature.current);
 celsiusTemp = Math.round(response.data.temperature.current);
-
-getForecast(response.data.coordinates);}
+}
 
 function search(city){
 let apiKey = "480227a74ed9efc4a37t55fo364bf60c";
 let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 axios.get(url).then(displayTemperature);
+let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`
+axios.get(apiUrl).then(showForecast);
 }
 
 function handleSubmit(event){
 event.preventDefault();
 let changeCity = document.querySelector("#citySearch");
 search(changeCity.value);
-
 }
-
-
-function convertCelcius(event){
-event.preventDefault();
-celcius.classList.add("active");
-fahren.classList.remove("active");
-let currentTemperature = document.querySelector("#temperature");
-currentTemperature.innerHTML = Math.round(celsiusTemp)
-}
-
 
 function formatTimestamp(timestamp){
   let date = new Date(timestamp * 1000);
@@ -89,7 +81,7 @@ forecast.innerHTML = forecastHTML;
 }
 
 search("Edinburgh");
+darkTheme();
 
 let searchBar = document.querySelector("#selfSearch");
 searchBar.addEventListener("submit", handleSubmit);
-
